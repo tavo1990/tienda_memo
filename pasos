@@ -1,0 +1,5 @@
+1) rails new [nombre_app] // crea proyecto rails
+2) rails generate model Product name:string reference:string precio:decimal quantity:integer brand:string description:text genera base de datos
+3) rake db:migrate // Crea la base de datos
+4) rails generate controller Products new edit index destroy show  //crea controlador en plural products con varias acciones
+5) resources :products  #Crea el archivo de rutas convencionales para revisar usa rake routes se hace en routes
