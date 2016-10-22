@@ -11,9 +11,13 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  category_id :integer
 #
 
 class Product < ApplicationRecord
+  #associations
+  belongs_to :category
+  #Validates
   validates :name, :reference, :precio, :quantity, :brand, presence: true
   validates :precio, numericality: true
   validates :quantity, numericality: { only_integer: true }
