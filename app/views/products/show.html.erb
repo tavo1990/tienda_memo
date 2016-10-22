@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h1 class = "text-centered">The product has been created successfully</h1>
+      <% if @action == 'created' || @action == 'updated' %>
+        <h1 class = "text-centered">The product has been <%= @action %> successfully</h1>
+      <% end %>
+      <h2>Product Information</h2>
       <p><strong>Name:</strong> <%= @product.name %></p>
       <p><strong>Reference:</strong> <%= @product.reference %></p>
       <p><strong>Precio:</strong> <%= @product.precio %></p>
@@ -14,7 +17,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 col-md-offset-2">
       <%= link_to "New Product", new_product_path %> -
       <%= link_to "All Products", products_path %>
     </div>

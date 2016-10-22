@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :find_product, only: [:edit ,:update, :show, :destroy]
   def new
     @product = Product.new
   end
@@ -6,15 +7,24 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       flash[:notice] = 'the product has been saved'
-      redirect_to @product
+      redirect_to product_path(id: @product.id, it_was: 'created')
     else
       render :new
     end
   end
 
   def edit
-    @product = Product.find(params[:id])
 
+  end
+
+  def update
+
+    if @product.update (product_params)
+      flash[:notice] = "Store was successfully updated."
+      redirect_to product_path(id: @product.id, it_was: 'updated')
+    else
+      render :edit
+    end
   end
 
   def index
@@ -22,20 +32,25 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
+
     @product.destroy
     flash[:notice] = "Store was successfully destroyed"
-    products_path
+    redirect_to products_path
   end
 
   def show
-    @product = Product.find(params[:id])
+
+    @action = params[:it_was]
   end
 
   private
     #Never trust parametres from the sacry internet, onli allow the whie list through. seguridad, solo acepta los parametros
     def product_params
       params.require(:product).permit(:name,:reference,:precio,:quantity,:brand,:description)
+    end
+
+    def find_product
+      @product = Product.find(params[:id])
     end
 
 end
