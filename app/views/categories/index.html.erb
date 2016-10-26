@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">List of Categories</h1>
+      <table class="table">
+        <thead>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Created At</th>
+          <th>Options</th>
+        </thead>
+
+        <tbody>
+          <% @categories.each do |category|  %>
+            <tr>
+              <td><%= category.name %></td>
+              <td><%= category.description %></td>
+              <td><%= category.created_at %></td>
+              <td>
+                <%= link_to 'View', category %> -
+                <%= link_to 'Edit', edit_category_path(category) %> -
+                <%= link_to "Remove",category, method: :delete, data: {confirm: 'Are you sure to delete this product?'} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to "New Product", new_category_path %>
+    </div>
+  </div>
+</div>
