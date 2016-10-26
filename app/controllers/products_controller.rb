@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
   private
     #Never trust parametres from the sacry internet, onli allow the whie list through. seguridad, solo acepta los parametros
     def product_params
-      params.require(:product).permit(:name,:reference,:precio,:quantity,:brand,:description)
+      params.require(:product).permit(:name,:reference,:precio,:quantity,:brand,:description,:category_id)
     end
 
     def find_product

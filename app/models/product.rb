@@ -18,7 +18,7 @@ class Product < ApplicationRecord
   #associations
   belongs_to :category
   #Validates
-  validates :name, :reference, :precio, :quantity, :brand, presence: true
+  validates :name, :reference, :precio, :quantity, :brand, :category_id, presence: true
   validates :precio, numericality: true
   validates :quantity, numericality: { only_integer: true }
   validates :precio, :quantity, numericality: { greater_or_equal_to: 0 }

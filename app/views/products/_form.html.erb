@@ -22,6 +22,12 @@
           <%= product.label :reference %>
           <%= product.text_field :reference, class: "form-control" %>
         </div>
+
+        <div class="form-group">
+          <%= product.label :category_id %>
+          <%= product.collection_select(:category_id, Category.all, :id, :name, {prompt:"Select Category"}, { class: 'form-control'}) %>
+        </div>
+
         <div class="form-group">
           <%= product.label :precio %>
           <%= product.number_field :precio, class: "form-control" %>
@@ -39,6 +45,7 @@
           <%= product.label :description %>
           <%= product.text_area :description, class: "form-control" %>
         </div>
+
         <div class="actions">
           <%= link_to 'Cancel', products_path, class: 'btn btn-danger' %>
           <%= product.submit 'Save Product', class: 'btn btn-success' %>
