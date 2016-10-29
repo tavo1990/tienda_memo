@@ -27,6 +27,8 @@ class User < ApplicationRecord
 
   enum role: [:admin,:client]
 
+  has_many :purchases, dependent: :destroy
+
 private
   def set_default_role              #set role client by default
     self.role ||= :client

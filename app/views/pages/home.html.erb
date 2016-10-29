@@ -14,11 +14,11 @@
             <% @products.each do |product| %>
                 <div class="col-sm-6 col-md-4">
                   <div class="thumbnail">
-                    <img src="http://fakeimg.pl/242x200/" alt="...">
+                  <%= image_tag product.image.url(:thumb), class:'image-responsive' %>
                     <div class="caption">
                       <h3><%= product.name %></h3>
                       <p class = "description"><%= product.description %></p>
-                      <p><%= link_to 'Comprar', '#', class: 'btn btn-success' %></p>
+                      <p><%= link_to 'Comprar', purchases_path(product_id: product.id),method: :post, class: 'btn btn-success' %></p>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :purchases
   resources :categories
   resources :products  #Crea el archivo de rutas convencionales para revisar usa rake routes
 
