@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_product, only: [:show,:edit,:update,:destroy]
+  before_action :its_admin?
   def new
     @category = Category.new
   end
@@ -48,5 +49,10 @@ class CategoriesController < ApplicationController
 
     def find_product
       @category = Category.find(params[:id])
+    end
+    def its_admin?
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Acceso Denegado, No posee permisos de administrador"
+      end
     end
 end
