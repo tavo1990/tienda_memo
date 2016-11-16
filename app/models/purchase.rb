@@ -17,4 +17,20 @@ class Purchase < ApplicationRecord
 
   #enum
   enum status:[:pending, :paid]
+#Class method to get the number of purchses
+  def self.number_of_purchases(user, status)
+    if status == "pending"
+      user.purchases.where(status: :pending).count
+    elsif status == "paid"
+      user.purchases.where(status: :paid).count
+    else
+      -1
+    end
+  end
+#Class to get the total debt
+  def self.balance(user)
+    pending_purchases = user.purchases.where(status: :pending)
+    pending_purchases.size > 0 ? user.purchases.where(status: :pending).sum(&:price) : 0
+  end
+
 end

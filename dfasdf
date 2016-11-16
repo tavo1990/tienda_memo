@@ -1,0 +1,46 @@
+********************************* 1. row *********************************
+                    id: 1
+                 email: jeffebernalster@gmail.com
+    encrypted_password: $2a$11$C6eilXipIIwjrechzHdRSOD7H5cgPC9xI02d4pfsu1s5.hiHCyUYy
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 12
+    current_sign_in_at: 2016-10-30 18:55:50 UTC
+       last_sign_in_at: 2016-10-29 21:25:01 UTC
+    current_sign_in_ip: 127.0.0.1
+       last_sign_in_ip: 127.0.0.1
+            created_at: 2016-10-27 22:12:42 UTC
+            updated_at: 2016-10-30 18:55:50 UTC
+                  role: admin
+********************************* 2. row *********************************
+                    id: 4
+                 email: jeffe.bernal@gmail.com
+    encrypted_password: $2a$11$nNltBZQnd6nbG0nk1cWtBOmn2syXztG9WhCFa/MMeDYl0.q1JeI8.
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 6
+    current_sign_in_at: 2016-10-29 19:27:37 UTC
+       last_sign_in_at: 2016-10-29 19:23:56 UTC
+    current_sign_in_ip: 127.0.0.1
+       last_sign_in_ip: 127.0.0.1
+            created_at: 2016-10-28 00:18:32 UTC
+            updated_at: 2016-10-29 19:27:37 UTC
+                  role: client
+********************************* 3. row *********************************
+                    id: 5
+                 email: user@correo.com
+    encrypted_password: $2a$11$KjZdq4oSZeyowSF.0cNPtuoFIvZ7fN3Q5sv/wXQxOzkmlpE1D2QNe
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 1
+    current_sign_in_at: 2016-10-29 19:30:50 UTC
+       last_sign_in_at: 2016-10-29 19:30:50 UTC
+    current_sign_in_ip: 127.0.0.1
+       last_sign_in_ip: 127.0.0.1
+            created_at: 2016-10-29 19:30:50 UTC
+            updated_at: 2016-10-29 19:30:50 UTC
+                  role: client
+3 rows in set

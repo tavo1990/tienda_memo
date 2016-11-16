@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class = "text-center"><%= "Historial de Compras" %></h1>
+      <h3 class = "text-center"><%= "Usuario: #{@user.email}" %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class = "text-center">Compras por pagar</h2>
+      <table class="table table-hover table-condensed" >
+        <thead>
+          <th>Image</th>
+          <th>Product</th>
+          <th>precio</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <% if current_user.admin? %>
+            <th>Opciones</th>
+          <% end %>
+        </thead>
+        <tbody>
+          <% @pending_purchases.each do |purchase| %>
+          <tr>
+            <td><%=image_tag purchase.product.image.url(:microthumb) %></td>
+            <td><%=purchase.product.name  %></td>
+            <td><%=purchase.product.precio  %></td>
+            <td><%=purchase.product.created_at.strftime("Comprado el %d de %B de %Y")  %></td>
+            <td class="danger"><%=purchase.status.humanize  %></td>
+            <% if current_user.admin? %>
+              <td><%= link_to 'Pagar', purchase_path(id: purchase.id, user_id: purchase.user.id), method: :patch %> - <%= link_to 'Eliminar',purchase_path(id: purchase.id, user_id: purchase.user.id),method: :delete, data:{confirm: 'Seguro que deseas eliminar esta compra?'}%> </td>
+            <% end %>
+          </tr>
+          <% end  %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class= "text-center">Compras pagadas</h2>
+      <table class="table table-hover table-condensed">
+        <thead>
+          <th>Product</th>
+          <th>precio</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+        </thead>
+        <tbody>
+          <% @paid_purchases.each do |purchase| %>
+          <tr>
+            <td><%=image_tag purchase.product.image.url(:microthumb) %></td>
+            <td><%=purchase.product.name  %></td>
+            <td><%=purchase.product.precio  %></td>
+            <td><%=purchase.product.created_at.strftime("Comprado el %d de %B de %Y")  %></td>
+            <td class="success"><%=purchase.status.humanize  %></td>
+            <% if current_user.admin? %>
+              <td><%= link_to 'Eliminar',purchase_path(id: purchase.id, user_id: purchase.user.id), method: :delete, data:{confirm: 'Seguro que deseas eliminar esta compra?'}%> </td>
+            <% end %>
+          </tr>
+          <% end  %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
